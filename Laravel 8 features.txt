@@ -1,0 +1,13 @@
+Jetstream
+Model Factory Classes
+Migration squashing
+Job batching
+Improved rate limiting
+Improved Maintenance Mode
+Closure Dispatch / Chain
+Dynamic Blade components
+Tailwind pagination views
+Time testing helpers
+Improvements to artisan serve
+Event listener improvements
+Bug Fixes
