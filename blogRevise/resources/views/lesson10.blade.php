@@ -1,4 +1,6 @@
+@include('header')
 <h3>Users Page</h3>
+@include('inner')
 
 {{--@if($user == 'Jonny')
 <h2>{{ $user }}</h2>
@@ -15,3 +17,9 @@
 @foreach($user as $item)
 <h3>{{ $item }}</h3>
 @endforeach
+
+@csrf
+<script>
+    var data = @json($user);
+    console.warn(data[0]);
+</script>
