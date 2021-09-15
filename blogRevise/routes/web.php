@@ -13,9 +13,22 @@ use App\Http\Controllers\lesson25Controller;
 use App\Http\Controllers\lesson26Controller;
 use App\Http\Controllers\lesson27ControllerDataInsertion;
 use App\Http\Controllers\lesson28ControllerDeleteData;
+use App\Http\Controllers\lesson30QueryBuilderController;
+use App\Http\Controllers\lesson31AggregateMethodsController;
+use App\Http\Controllers\lesson32JoinController;
+use App\Http\Controllers\lesson36AccessorController;
+use App\Http\Controllers\lesson37MutatorController;
+use App\Http\Controllers\lesson38OneToOneRelation;
+use App\Http\Controllers\lesson39OneToManyRelation;
+use App\Http\Controllers\lesson42RouteModelBindingController;
+use App\Http\Controllers\lesson45MultipleDbController;
 use App\Http\Controllers\lesson8Controller;
 use App\Http\Controllers\myFirstController;
+use App\Models\lesson36AccessorModel;
+use App\Models\lesson37MutatorModel;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
+use App\Mail\SampleMail;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +44,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     //return view('welcome',['name'=>$name]);
     //return redirect('contact');
+    return new SampleMail();
 });
 
 Route:: view("about",'about');
@@ -109,3 +123,32 @@ Route::post("storedata",[lesson27ControllerDataInsertion::class,'addData']);
 
 Route::get("memberslist",[lesson28ControllerDeleteData::class,'show']);
 Route::get("delete/{id}",[lesson28ControllerDeleteData::class,'delete']);
+Route::get("edit/{id}",[lesson28ControllerDeleteData::class,'showData']);
+Route::post("update",[lesson28ControllerDeleteData::class,'update']);
+
+Route::get("querybuilder",[lesson30QueryBuilderController::class,'dbOperations']);
+
+Route::get("aggregatemethod",[lesson31AggregateMethodsController::class,'operation']);
+
+Route::get("joining",[lesson32JoinController::class,'joining']);
+
+Route::get("accessor",[lesson36AccessorController::class,'index']);
+
+Route::get("mutator",[lesson37MutatorController::class,'index']);
+
+Route::get("onetoone",[lesson38OneToOneRelation::class,'show']);
+
+Route::get("onetomany",[lesson39OneToManyRelation::class,'index']);
+
+$data = "hi,let's learn laravel";
+
+$data = Str::of($data)
+        ->ucfirst($data)
+        ->replaceFirst("Hi","Hello",$data)
+        ->camel($data);
+
+//echo $data;
+
+Route::get("binding/{key:name}",[lesson42RouteModelBindingController::class,'index']);
+
+Route::get("multipleDB",[lesson45MultipleDbController::class,'index']);

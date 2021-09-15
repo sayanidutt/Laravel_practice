@@ -17,4 +17,16 @@ class lesson28ControllerDeleteData extends Controller
         $data->delete();
         return redirect('memberslist');
     }
+    function showData($id){
+        $data = lesson27Model::find($id);
+        return view('lesson29updatedata',['data'=>$data]);
+    }
+    function update(Request $req){
+        $data = lesson27Model::find($req->id);
+        $data->name = $req->name;
+        $data->age = $req->age;
+        $data->address = $req->address;
+        $data->save();
+        return redirect('memberslist');
+    }
 }
