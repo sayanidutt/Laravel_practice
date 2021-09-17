@@ -22,6 +22,7 @@ use App\Http\Controllers\lesson38OneToOneRelation;
 use App\Http\Controllers\lesson39OneToManyRelation;
 use App\Http\Controllers\lesson42RouteModelBindingController;
 use App\Http\Controllers\lesson45MultipleDbController;
+use App\Http\Controllers\lesson48GetApiController;
 use App\Http\Controllers\lesson8Controller;
 use App\Http\Controllers\myFirstController;
 use App\Models\lesson36AccessorModel;
@@ -152,3 +153,5 @@ $data = Str::of($data)
 Route::get("binding/{key:name}",[lesson42RouteModelBindingController::class,'index']);
 
 Route::get("multipleDB",[lesson45MultipleDbController::class,'index']);
+
+Route::get("getapi",[lesson48GetApiController::class,'index']);
